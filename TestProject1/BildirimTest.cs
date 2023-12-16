@@ -11,6 +11,9 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
+
+namespace TestProject1;
+
 [TestFixture]
 public class BildirimTest
 {
