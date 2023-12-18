@@ -66,14 +66,14 @@ public class HepsiburadaGirisTest
         }
         Thread.Sleep(1000);    
 
-        driver.FindElement(By.Id("txtPassword")).SendKeys("8DWf3#uqfELpV$j");
+        driver.FindElement(By.Id("txtPassword")).SendKeys("password");
        
         Thread.Sleep(3000);    
 
         driver.FindElement(By.Id("btnEmailSelect")).Click();
 
         Thread.Sleep(3000);
-        //hepsiburadadan kaynaklý hata alýyo
+        //hepsiburadadan kaynaklï¿½ hata alï¿½yo
         Assert.AreEqual(driver.Url, "https://www.hepsiburada.com/");
 
     }
