@@ -28,23 +28,17 @@ namespace TestProject1
         //public void KimlikDoðruamaTesti()
         //{
 
-        //    var options = new ChromeOptions();
-
-        //    options.AddArgument("--start-maximized");
-        //    options.AddArgument("--remote-allow-origins=*");
-
-
-        //    // Tarayýcý sürücüsünü baþlatma
-        //    IWebDriver driver = new ChromeDriver(options);
-
-
         //    // Web sayfasýný açma
-        //    driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/infinite_scroll");
+        //    driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/basic_auth");
 
-        //    new Actions(driver)
-        //           .ScrollByAmount()
-        //           .Perform();
+        //    // Create a virtual authenticator
+        //    VirtualAuthenticator authenticator = new VirtualAuthenticator();
 
+        //    // Register the authenticator with the web site
+        //    authenticator.Register(driver, "my-site.com");
+
+        //    // Authenticate with the web site
+        //    authenticator.Authenticate(driver, "my-username", "my-password");
 
         //    Assert.Pass();
         //}
