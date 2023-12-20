@@ -60,55 +60,6 @@ async function example() {
     }
 
 
-
-
-
-
-    // try {
-    //     await driver.get("https://www.hepsiburada.com/");
-
-    //     await driver.sleep(5000);
-
-    //     // const hoverable = driver.findElement(By.id("hover"));
-    //     // const actions = driver.actions({ async: true });
-    //     // await actions.move({ origin: hoverable }).perform();
-
-    //     let a = await driver.findElement(By.id("myAccount"));
-    //     const actions = driver.actions({ async: true });
-    //     await new Actions(driver).moveToElement({ origin: a }).perform();
-
-    //     await driver.sleep(100);
-
-    //     await driver.findElement(By.id("login")).click();
-    //     await driver.sleep(5000);
-
-    //     await driver.findElement(By.id("txtUserName")).click();
-    //     await driver
-    //         .findElement(By.id("txtUserName"))
-    //         .sendKeys("lmnfnrbhc@gmail.com");
-    //     await driver.findElement(By.id("btnLogin")).click();
-
-    //     let element = await driver.findElement(By.id("btnLogin"));
-    //     await new Actions(driver).moveToElement({ origin: element }).perform();
-
-    //     let bodyElement = await driver.findElement(By.tagName("body"));
-    //     await new Actions(driver).moveToElement(bodyElement, 0, 0).perform();
-
-    //     await driver.sleep(1000);
-
-    //     await driver.findElement(By.id("txtPassword")).sendKeys("password");
-    //     await driver.sleep(3000);
-
-    //     await driver.findElement(By.id("btnEmailSelect")).click();
-    // } catch (error) {
-    //     console.error("Hata:", error);
-    // } finally {
-    //     //  await driver.quit();
-    // }
-
-
-
-
 }
 
 example();

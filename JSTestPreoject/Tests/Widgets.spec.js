@@ -147,6 +147,6 @@ describe('DEMOQ2', function() {
     //   const dropdown = await driver.findElement(By.id("cars"))
     //   await dropdown.findElement(By.xpath("//option[. = 'Volvo']")).click()
     // }
-    // await driver.close()
+    await driver.close()
   })
 })
