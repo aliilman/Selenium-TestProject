@@ -8,9 +8,8 @@ using System.Net;
 
 namespace TestProject1
 {
-    public class HorizontalSlider
+    public class DragnDrop
     {
-
         private IWebDriver driver;
         public IDictionary<string, object> vars { get; private set; }
         private IJavaScriptExecutor js;
@@ -26,35 +25,28 @@ namespace TestProject1
         {
             driver.Quit();
         }
+
+
         [Test]
-        public async Task HorizontalSliderTest()
+        public async Task DragnDropTest()
         {
 
+            driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/drag_and_drop");
 
 
+            IWebElement Abox = driver.FindElement(By.Id("column-a"));
 
-            driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/horizontal_slider");
-
-
-            IWebElement horizontalSlider = driver.FindElement(By.CssSelector("input"));
-            //horizontalSlider.Click();
-
-            IWebElement horizontalSlidervalue;
-
-            for (int i = 0; i < 10; i++)
-            {
-                 horizontalSlidervalue = driver.FindElement(By.Id("range"));
-             
-                if (horizontalSlidervalue.Text == "4.5")
-                {
-                    Assert.Pass();
-                }
-                horizontalSlider.SendKeys(Keys.Right);
-            }
-            Assert.Fail();
+            IWebElement Bbox = driver.FindElement(By.Id("column-b"));
 
 
-            
+            new Actions(driver)
+                .DragAndDrop(Abox, Bbox)
+                .Perform();
+
+            IWebElement AHeader = driver.FindElement(By.CssSelector("#column-a > header"));
+            IWebElement Bheader = driver.FindElement(By.CssSelector("#column-b > header"));
+
+            Assert.AreEqual(AHeader.Text, "B");
         }
     }
 }
