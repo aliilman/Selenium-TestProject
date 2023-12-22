@@ -24,7 +24,7 @@ describe('DEMOQ2', function() {
     await driver.findElement(By.id("section3Heading")).click()
 
 
-
+    await driver.sleep(50);
     await driver.findElement(By.css(".show #item-1 > .text")).click()
     await driver.findElement(By.css(".auto-complete__value-container--is-multi")).click()
     await driver.findElement(By.css(".auto-complete__control--is-focused > .auto-complete__value-container")).click()
@@ -95,15 +95,16 @@ describe('DEMOQ2', function() {
    // await driver.findElement(By.css("li:nth-child(2) > ul > li:nth-child(2) > a")).click()
     // await driver.findElement(By.linkText("SUB SUB LIST »")).click()
 
+    
     const hoverable2 = driver.findElement(By.linkText("SUB SUB LIST »"));
     const actions2 = driver.actions({ async: true });
-    await actions.move({ origin: hoverable }).perform();
+    await actions2.move({ origin: hoverable2 }).perform();
 
-
+    await driver.sleep(50);
     // await driver.findElement(By.linkText("Sub Sub Item 1"))
     const hoverable3 = driver.findElement(By.linkText("Sub Sub Item 1"));
     const actions3 = driver.actions({ async: true });
-    await actions.move({ origin: hoverable }).perform();
+    await actions3.move({ origin: hoverable3 }).perform();
 
     await driver.sleep(1000);
     // await driver.findElement(By.linkText("Sub Sub Item 2")).click()

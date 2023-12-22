@@ -1,6 +1,5 @@
-import { Builder, By, Key, until, WebDriver, WebElement, Actions ,locateWith,RelativeBy, Button } from 'selenium-webdriver';
-
-
+import { Builder, By, Key, until, WebDriver, WebElement, Actions ,locateWith,RelativeBy, Button, Capabilities } from 'selenium-webdriver';
+import { Options } from 'selenium-webdriver/chrome';
 const Chrome = require('selenium-webdriver/chrome');
 import assert from 'assert';
 import { afterEach, beforeEach, describe, it } from 'node:test';
@@ -11,32 +10,36 @@ describe('SeleniumOzellikleri', function () {
   let driver: WebDriver;
   let vars: any;
 
-  // beforeEach(async function(env  :Environment ) { chrome options özellikler eklerken sorun oluştu
+  beforeEach(async function () { //chrome options özellikler eklerken sorun oluştu
+    const chromeOptions = new Options();
+    chromeOptions.addArguments('--start-maximized'); // Pencereyi tam ekran yapar
+   // chromeOptions.addArguments('--disable-extensions'); // Eklentileri devre dışı bırakır
+  
+    // Diğer ChromeOptions ayarları ekleyebilirsiniz
+  
+    // WebDriver oluştur
+     driver = await new Builder()
+      .forBrowser('chrome')
+      .withCapabilities(Capabilities.chrome())
+      .setChromeOptions(chromeOptions)
+      .build();
+  });
 
-  //   const Options = new Chrome.Options();
-  //   let driver = await env
-  //     .builder()
-  //     .setChromeOptions(Options.addArguments('--start-maximized'))//https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md
-  //     .build();
 
+  // beforeEach(async function () { // test ön koşulları
   //   driver = await new Builder().forBrowser('chrome').build(); //Tarayıcı oluşturma
+
+  //       //implicit
+  //       await driver.manage().setTimeouts({ implicit: 2000 }); //hatayı döndürmeden önce sağlanan değerin süresi kadar bekleyecektir. 
+
+  //   // //Explicit waits
+  //   // let revealed = await driver.findElement(By.id("revealed")); //bulana kadar bekle (döngü mantığı)
+  //   // await driver.findElement(By.id("reveal")).click();
+  //   // await driver.wait(until.elementIsVisible(revealed), 2000);
+  //   // await revealed.sendKeys("Displayed");
+        
   //   vars = {};
   // });
-
-  beforeEach(async function () { // test ön koşulları
-    driver = await new Builder().forBrowser('chrome').build(); //Tarayıcı oluşturma
-
-        //implicit
-        await driver.manage().setTimeouts({ implicit: 2000 }); //hatayı döndürmeden önce sağlanan değerin süresi kadar bekleyecektir. 
-
-    // //Explicit waits
-    // let revealed = await driver.findElement(By.id("revealed")); //bulana kadar bekle (döngü mantığı)
-    // await driver.findElement(By.id("reveal")).click();
-    // await driver.wait(until.elementIsVisible(revealed), 2000);
-    // await revealed.sendKeys("Displayed");
-        
-    vars = {};
-  });
 
   afterEach(async function () { // test sonrası yapılacakalr
     await driver.quit();
@@ -142,7 +145,7 @@ describe('SeleniumOzellikleri', function () {
 
 
     await driver.get('https://the-internet.herokuapp.com/drag_and_drop');
-    await driver.manage().setTimeouts({ implicit: 2000 });
+  
 
     //Move to element
     const hoverable2: WebElement = driver.findElement(By.id("column-a"));
