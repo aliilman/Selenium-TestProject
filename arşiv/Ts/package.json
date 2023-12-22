@@ -1,0 +1,33 @@
+{
+  "name": "tstestproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "selenium-webdriver": "^4.16.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.2"
+  },
+  
+    "spec": "**/*.spec.ts",
+    "require": "ts-node/register",
+
+    
+      "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "strict": true
+      }
+    
+  
+}
