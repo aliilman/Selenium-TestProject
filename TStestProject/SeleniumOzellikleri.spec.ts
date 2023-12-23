@@ -49,9 +49,9 @@ describe('SeleniumOzellikleri', function () {
 
     await driver.get("https://www.selenium.dev/selenium/web/inputs.html"); //urlye git 
     
-    let title : string = await driver.getTitle();// tarayıcı bilgileri al
-    console.log("Current url: ", await driver.getCurrentUrl())
-    console.log("Title: ", title)
+    //let title : string = await driver.getTitle();// tarayıcı bilgileri al
+    console.log("Current url: ", await driver.getCurrentUrl());
+    //console.log("Title: ", title)
 
     
     
@@ -92,7 +92,23 @@ describe('SeleniumOzellikleri', function () {
     let isSelected: boolean = await driver.findElement(By.name("email_input")).isSelected();
     let getTagName : string= await driver.findElement(By.name('email_input')).getTagName();
     let getRect = await driver.findElement(By.name('email_input')).getRect();
-    let getText = await driver.findElement(By.name('email_input')).getText();
+   // let getText = await driver.findElement(By.name('email_input')).getText();
+
+
+    //await driver.get('https://www.selenium.dev/selenium/web/blank.html');
+
+
+
+    // set a cookie on the current domain
+    await driver.manage().addCookie({ name: 'key', value: 'value' });
+    await driver.manage().addCookie({ name: 'aLİ', value: 'FNRBHC' });
+
+    await driver.manage().getCookies().then(function(cookies) {
+      console.log('cookie details => ', cookies);
+    });
+
+    await driver.sleep(20000);
+
 
 
 
@@ -152,6 +168,8 @@ describe('SeleniumOzellikleri', function () {
     const actions6 : Actions= driver.actions({async: true});
     await actions6.move({origin: hoverable2}).perform();
 
+    await driver.sleep(100);
+
     //Drag and Drop on Element
     const draggable : WebElement= driver.findElement(By.id("column-a"));
     const droppable: WebElement  = await driver.findElement(By.id("column-b"));
@@ -173,7 +191,6 @@ describe('SeleniumOzellikleri', function () {
   //       .scroll(0, 0, 0, deltaY)
   //       .perform()
 
-
     await driver.get(' https://the-internet.herokuapp.com/infinite_scroll');
     // JavaScript ile sayfayı kaydırma
 
@@ -182,7 +199,6 @@ describe('SeleniumOzellikleri', function () {
       await driver.executeScript(`window.scrollBy(0, ${500});`);
       await driver.sleep(500);
     }
-
 
     ///File Upload
     //#region 
@@ -193,12 +209,11 @@ describe('SeleniumOzellikleri', function () {
     // await driver.findElement(By.id("file-submit")).submit();
     //#endregion
 
-
-
     assert.equal(1, 1)
-    await driver.sleep(5000);
+    await driver.sleep(2000);
 
 
     await driver.close();
   });
 })
+
